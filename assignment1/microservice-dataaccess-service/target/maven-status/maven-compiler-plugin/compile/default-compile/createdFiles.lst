@@ -1,0 +1,5 @@
+com\paxos\assignment\microservice\controller\DataAccessController.class
+com\paxos\assignment\microservice\bean\DataAccessServiceMessage.class
+com\paxos\assignment\microservice\cache\CacheManager$1.class
+com\paxos\assignment\microservice\DataaccessServiceApplication.class
+com\paxos\assignment\microservice\cache\CacheManager.class

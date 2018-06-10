@@ -1,0 +1,100 @@
+Manifest-Version: 1.0
+Implementation-Title: microservice-dataaccess-service
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: appu_kumar
+Implementation-Vendor-Id: com.paxos.assignment.microservice.dataaccess
+Class-Path: dependency-jars/spring-cloud-starter-netflix-eureka-client
+ -2.0.0.M7.jar dependency-jars/spring-cloud-starter-2.0.0.M8.jar depen
+ dency-jars/spring-cloud-context-2.0.0.M8.jar dependency-jars/spring-s
+ ecurity-crypto-5.0.3.RELEASE.jar dependency-jars/spring-cloud-commons
+ -2.0.0.M8.jar dependency-jars/spring-security-rsa-1.0.5.RELEASE.jar d
+ ependency-jars/bcpkix-jdk15on-1.56.jar dependency-jars/bcprov-jdk15on
+ -1.56.jar dependency-jars/spring-cloud-netflix-core-2.0.0.M7.jar depe
+ ndency-jars/spring-cloud-netflix-ribbon-2.0.0.M7.jar dependency-jars/
+ spring-boot-starter-aop-2.0.0.RELEASE.jar dependency-jars/aspectjweav
+ er-1.8.13.jar dependency-jars/spring-cloud-netflix-eureka-client-2.0.
+ 0.M7.jar dependency-jars/eureka-client-1.8.6.jar dependency-jars/jett
+ ison-1.3.7.jar dependency-jars/stax-api-1.0.1.jar dependency-jars/net
+ flix-eventbus-0.3.0.jar dependency-jars/netflix-infix-0.3.0.jar depen
+ dency-jars/commons-jxpath-1.3.jar dependency-jars/joda-time-2.9.9.jar
+  dependency-jars/antlr-runtime-3.4.jar dependency-jars/stringtemplate
+ -3.2.1.jar dependency-jars/antlr-2.7.7.jar dependency-jars/gson-2.8.2
+ .jar dependency-jars/commons-math-2.2.jar dependency-jars/archaius-co
+ re-0.7.5.jar dependency-jars/jsr311-api-1.1.1.jar dependency-jars/ser
+ vo-core-0.10.1.jar dependency-jars/servo-internal-0.10.1.jar dependen
+ cy-jars/jersey-core-1.19.1.jar dependency-jars/jersey-client-1.19.1.j
+ ar dependency-jars/jersey-apache-client4-1.19.1.jar dependency-jars/h
+ ttpclient-4.5.5.jar dependency-jars/httpcore-4.4.9.jar dependency-jar
+ s/commons-codec-1.11.jar dependency-jars/guice-4.1.0.jar dependency-j
+ ars/javax.inject-1.jar dependency-jars/aopalliance-1.0.jar dependency
+ -jars/compactmap-1.2.1.jar dependency-jars/dexx-collections-0.2.jar d
+ ependency-jars/jackson-annotations-2.9.0.jar dependency-jars/jackson-
+ core-2.9.3.jar dependency-jars/jackson-databind-2.9.3.jar dependency-
+ jars/eureka-core-1.8.6.jar dependency-jars/woodstox-core-asl-4.4.1.ja
+ r dependency-jars/stax-api-1.0-2.jar dependency-jars/stax2-api-3.1.4.
+ jar dependency-jars/spring-cloud-starter-netflix-archaius-2.0.0.M7.ja
+ r dependency-jars/spring-cloud-netflix-archaius-2.0.0.M7.jar dependen
+ cy-jars/commons-configuration-1.8.jar dependency-jars/commons-lang-2.
+ 6.jar dependency-jars/spring-cloud-starter-netflix-ribbon-2.0.0.M7.ja
+ r dependency-jars/ribbon-2.2.4.jar dependency-jars/ribbon-transport-2
+ .2.4.jar dependency-jars/rxnetty-contexts-0.4.9.jar dependency-jars/r
+ xnetty-servo-0.4.9.jar dependency-jars/hystrix-core-1.5.12.jar depend
+ ency-jars/HdrHistogram-2.1.9.jar dependency-jars/rxnetty-0.4.9.jar de
+ pendency-jars/netty-codec-http-4.1.22.Final.jar dependency-jars/netty
+ -codec-4.1.22.Final.jar dependency-jars/netty-transport-native-epoll-
+ 4.1.22.Final.jar dependency-jars/netty-common-4.1.22.Final.jar depend
+ ency-jars/netty-buffer-4.1.22.Final.jar dependency-jars/netty-transpo
+ rt-native-unix-common-4.1.22.Final.jar dependency-jars/netty-transpor
+ t-4.1.22.Final.jar dependency-jars/netty-resolver-4.1.22.Final.jar de
+ pendency-jars/ribbon-core-2.2.4.jar dependency-jars/ribbon-httpclient
+ -2.2.4.jar dependency-jars/commons-collections-3.2.2.jar dependency-j
+ ars/netflix-commons-util-0.1.1.jar dependency-jars/ribbon-loadbalance
+ r-2.2.4.jar dependency-jars/netflix-statistics-0.1.1.jar dependency-j
+ ars/rxjava-1.3.6.jar dependency-jars/ribbon-eureka-2.2.4.jar dependen
+ cy-jars/slf4j-api-1.7.25.jar dependency-jars/xstream-1.4.9.jar depend
+ ency-jars/xmlpull-1.1.3.1.jar dependency-jars/xpp3_min-1.1.4c.jar dep
+ endency-jars/spring-boot-starter-web-2.0.0.RELEASE.jar dependency-jar
+ s/spring-boot-starter-2.0.0.RELEASE.jar dependency-jars/spring-boot-s
+ tarter-logging-2.0.0.RELEASE.jar dependency-jars/logback-classic-1.2.
+ 3.jar dependency-jars/logback-core-1.2.3.jar dependency-jars/log4j-to
+ -slf4j-2.10.0.jar dependency-jars/log4j-api-2.10.0.jar dependency-jar
+ s/jul-to-slf4j-1.7.25.jar dependency-jars/javax.annotation-api-1.3.2.
+ jar dependency-jars/snakeyaml-1.19.jar dependency-jars/spring-boot-st
+ arter-json-2.0.0.RELEASE.jar dependency-jars/jackson-datatype-jdk8-2.
+ 9.3.jar dependency-jars/jackson-datatype-jsr310-2.9.3.jar dependency-
+ jars/jackson-module-parameter-names-2.9.3.jar dependency-jars/spring-
+ boot-starter-tomcat-2.0.0.RELEASE.jar dependency-jars/tomcat-embed-co
+ re-8.5.28.jar dependency-jars/tomcat-embed-el-8.5.28.jar dependency-j
+ ars/tomcat-embed-websocket-8.5.28.jar dependency-jars/hibernate-valid
+ ator-6.0.7.Final.jar dependency-jars/validation-api-2.0.1.Final.jar d
+ ependency-jars/jboss-logging-3.3.2.Final.jar dependency-jars/classmat
+ e-1.3.4.jar dependency-jars/spring-web-5.0.4.RELEASE.jar dependency-j
+ ars/spring-beans-5.0.4.RELEASE.jar dependency-jars/spring-webmvc-5.0.
+ 4.RELEASE.jar dependency-jars/spring-aop-5.0.4.RELEASE.jar dependency
+ -jars/spring-context-5.0.4.RELEASE.jar dependency-jars/spring-express
+ ion-5.0.4.RELEASE.jar dependency-jars/spring-boot-devtools-2.0.0.RELE
+ ASE.jar dependency-jars/spring-boot-2.0.0.RELEASE.jar dependency-jars
+ /spring-boot-autoconfigure-2.0.0.RELEASE.jar dependency-jars/junit-4.
+ 12.jar dependency-jars/hamcrest-core-1.3.jar dependency-jars/spring-c
+ ore-5.0.4.RELEASE.jar dependency-jars/spring-jcl-5.0.4.RELEASE.jar de
+ pendency-jars/guava-25.1-jre.jar dependency-jars/jsr305-3.0.2.jar dep
+ endency-jars/checker-qual-2.0.0.jar dependency-jars/error_prone_annot
+ ations-2.1.3.jar dependency-jars/j2objc-annotations-1.1.jar dependenc
+ y-jars/animal-sniffer-annotations-1.14.jar dependency-jars/onejar-mav
+ en-plugin-1.4.4.jar dependency-jars/commons-io-1.3.1.jar dependency-j
+ ars/maven-model-2.0.9.jar dependency-jars/plexus-utils-1.5.1.jar depe
+ ndency-jars/maven-plugin-api-2.0.9.jar dependency-jars/maven-artifact
+ -2.0.9.jar dependency-jars/maven-project-2.0.9.jar dependency-jars/ma
+ ven-settings-2.0.9.jar dependency-jars/maven-profile-2.0.9.jar depend
+ ency-jars/maven-artifact-manager-2.0.9.jar dependency-jars/maven-repo
+ sitory-metadata-2.0.9.jar dependency-jars/wagon-provider-api-1.0-beta
+ -2.jar dependency-jars/maven-plugin-registry-2.0.9.jar dependency-jar
+ s/plexus-container-default-1.0-alpha-9-stable-1.jar dependency-jars/c
+ lassworlds-1.1-alpha-2.jar
+Build-Jdk: 1.8.0_111
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/microservice-dataaccess-service
+Created-By: Maven Integration for Eclipse
+Main-Class: com.paxos.assignment.microservice.DataaccessServiceApplica
+ tion
+
