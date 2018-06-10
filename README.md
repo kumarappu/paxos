@@ -16,31 +16,39 @@ Assignment 1 has been implemented  based on microservice architecture using Spri
 
 In this implementaion, We have two microservices and one Naming server as shown on following architecture diagram.
 
- ![alt text]( https://github.com/kumarappu/paxos/blob/master/Architecture.png)
+ ![alt text]( https://github.com/kumarappu/paxos/blob/master/assignment1/Architecture.png)
  
     
 There are two instances of SHA256-service and 1 instance of Dataaccess-service running in AWS EC2 instance. Apache server has been used to loadbalance traffic for SHA256-services. Google Guava has been used an in memory cache in data access layer.
-  
-   #### Source Code    
-   
-   Here is the entry point for each microservices.
-   SHA256-service  - insert code url
-   Dataaccess-service insert code
+ 
+  Services  endpoint: http://54.175.84.45/messages.
+ 
+ Eureka monitoring dashboard is available at http://54.175.84.45:8761/ . Here is screenshot for same. It reflects two instances of SHA256 microservices and one instance of Dataaccess ervice.
+ ![alt text](https://github.com/kumarappu/paxos/blob/master/assignment1/EurekaNamingServer.png)
    
 ## Performance Question
   What would the bottleneck(s) be in your implementation as you acquire more users? How you might scale your microservice?
 	  
   Answer : Both SHA256-service  and Dataaccess-service can become bottleneck. This can be easily scaled with following approaches. 
 
-  - Call to dataaccess service from SHA256 service can be made async.It will help with multiple concurrent request.
-  - Multiple instance of SHA256-service  and Dataaccess-service can be deployed for horizental scaling to achieve high throughput 
+  - Call to dataaccess service from SHA256 service can be made async.It will help with large concurrent request.
+  - Multiple instance of SHA256-service  and Dataaccess-service can be deployed for horizental scaling to achieve high throughput.
   - AWS Elastic Load balancer with auto scaling can be easily incorporated with the current design.
   - Netflix Ribbon can also be used as software loadbalnceer to distribute request from SHA256 to dataaccess layer.
   - We can use distributed cache like Redis/Memcahe in dataaccess layer to reduce the latancey in dataaccess layer  during high load.
   
+  
+#### Source Code    
+   
+   Here are the source code for Rest handler class within each microservices.
+   
+   SHA256-service  https://github.com/kumarappu/paxos/blob/master/assignment1/microservice-sha256-service/src/main/java/com/paxos/assignment/microservice/controller/SHA256ConversionController.java
+   
+   Dataaccess-service https://github.com/kumarappu/paxos/blob/master/assignment1/microservice-dataaccess-service/src/main/java/com/paxos/assignment/microservice/controller/DataAccessController.java
+   
 ## Instructions to test Assignment 1
 
-- Services can be accssed using apache LB url http://54.175.84.45/messages.
+
 - Services can be tested using any rest client  like curl, Postman, ARC etc. Here are test example using  curl.
 
    ###### Example 1:  POST a JSON request  with a message , and receive  SHA256 hash digest of that message in response
@@ -64,7 +72,7 @@ There are two instances of SHA256-service and 1 instance of Dataaccess-service r
    
        {"message":"foo"}
 
-   ###### Example 3: GET request that returns 404 for message not posted earlier
+   ###### Example 3: GET request that returns 404 for non-existent message.
    Request:
 
         $ curl http://54.175.84.45/messages/aaaaaaaaaaaaaaaaaaaa
@@ -84,8 +92,8 @@ There are two instances of SHA256-service and 1 instance of Dataaccess-service r
     - (on Linux) :
         chmod 755 runAssignment1.sh
         ./runAssignment1.sh
-    - There are 20 seconds gap between  two micro services (Total wait 40 seconds)
-    -  When all the micro services are up, submit  request as shown in following examples
+    - There are 20 seconds gap between  microservices boot time (Total wait  around 60 seconds).
+    -  When all the micro services are up, submit request as shown in following examples
     
    
    ###### Example 1:  POST a JSON request  with a message , and receive  SHA256 hash digest of that message in response
