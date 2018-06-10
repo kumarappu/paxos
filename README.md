@@ -1,7 +1,80 @@
 # paxos
 paxos assignments
 
-## Instrunctions to run Assinment 1 on local
+# Assignment 1
+
+
+Publish a small service on the web that has two endpoints:
+1. /messages takes a message (a string) as a POST and returns the SHA256 hash digest
+of that message (in hexadecimal format)
+2. /messages/<hash> is a GET request that returns the original message. A request to a
+non-existent <hash> should return a 404 error.
+
+
+## Implementation 
+Assignment 1 has been implemented  based on microservice architecture using Spring Boot , Netflix Eureka Naming Server for service discovery and Google Guava cache.
+
+In this implementaion, We have two microservices and one Naming server as shown on following architecture diagram.
+
+ ![alt text]( https://github.com/kumarappu/paxos/blob/master/Architecture.png)
+ 
+    
+There are two instances of SHA256-service and 1 instance of Dataaccess-service running in AWS EC2 instance. Apache server has been used to loadbalance traffic for SHA256-services. Google Guava has been used an in memory cache in data access layer.
+  
+   #### Source Code    
+   
+   Here is the entry point for each microservices.
+   SHA256-service  - insert code url
+   Dataaccess-service insert code
+   
+## Performance Question
+  What would the bottleneck(s) be in your implementation as you acquire more users? How you might scale your microservice?
+	  
+  Answer : Both SHA256-service  and Dataaccess-service can become bottleneck. This can be easily scaled with following approaches. 
+
+  - Call to dataaccess service from SHA256 service can be made async.It will help with multiple concurrent request.
+  - Multiple instance of SHA256-service  and Dataaccess-service can be deployed for horizental scaling to achieve high throughput 
+  - AWS Elastic Load balancer with auto scaling can be easily incorporated with the current design.
+  - Netflix Ribbon can also be used as software loadbalnceer to distribute request from SHA256 to dataaccess layer.
+  - We can use distributed cache like Redis/Memcahe in dataaccess layer to reduce the latancey in dataaccess layer  during high load.
+  
+## Instructions to test Assignment 1
+
+- Services can be accssed using apache LB url http://54.175.84.45/messages.
+- Services can be tested using any rest client  like curl, Postman, ARC etc. Here are test example using  curl.
+
+   ###### Example 1:  POST a JSON request  with a message , and receive  SHA256 hash digest of that message in response
+    
+   Request:
+   
+      $ curl -X POST -H "Content-Type: application/json" -d '{"message": "foo"}' http://54.175.84.45/messages
+   
+   Response:
+   
+      {"digest":"2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae"}
+
+
+       
+   ###### Example 2: GET request that returns the original message.
+   Request:
+
+       $ curl http://54.175.84.45/messages/2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae
+
+   Response:
+   
+       {"message":"foo"}
+
+   ###### Example 3: GET request that returns 404 for message not posted earlier
+   Request:
+
+        $ curl http://54.175.84.45/messages/aaaaaaaaaaaaaaaaaaaa
+        
+   Response:
+                  
+       {"httpCode":404,"httpStatus":"Not Found","err_msg":"Message not found"}
+
+
+## Instructions to run Assignment 1 on  your local 
  #### Pre-requisite : JDK 1.8 to be set on PATH
     - Download the zip or clone the Git repository.
     - Unzip the zip file (if you downloaded one)
@@ -60,15 +133,16 @@ paxos assignments
        
 
 
+# Assignment 2 & 3
 
-## Instrunctions to run Assinment 2 & 3
+## Instructions to run Assignment 2 & 3
     - Download the zip or clone the Git repository.
     - Unzip the zip file (if you downloaded one)
     - Open Command Prompt and Change directory (cd) to paxos\assignments2and3
   
  #### Pre-requisite : JDK 1.8 to be set on PATH
  
- ### Assinment 2
+ ### Assignment 2
    #### Source Code
    https://github.com/kumarappu/paxos/blob/master/assignments2and3/src/com/paxos/assignment2/Assignment2.java
    https://github.com/kumarappu/paxos/blob/master/assignments2and3/src/com/paxos/assignment2/Assignment2Test.java
@@ -82,7 +156,7 @@ paxos assignments
         Space: O(N)
 
 
- ### Assinment 2 (Bonus)
+ ### Assignment 2 (Bonus)
    #### Source Code
    https://github.com/kumarappu/paxos/blob/master/assignments2and3/src/com/paxos/assignment2Bonus/Assignment2Bonus.java
    https://github.com/kumarappu/paxos/blob/master/assignments2and3/src/com/paxos/assignment2Bonus/Assignment2BonusTest.java
@@ -95,7 +169,7 @@ paxos assignments
         Time:  O(N*N)
         Space: O(N)
 
- ### Assinment 3
+ ### Assignment 3
    #### Source Code
    https://github.com/kumarappu/paxos/blob/master/assignments2and3/src/com/paxos/assignment3/Assignment3.java
    https://github.com/kumarappu/paxos/blob/master/assignments2and3/src/com/paxos/assignment3/Assignment3Test.java
