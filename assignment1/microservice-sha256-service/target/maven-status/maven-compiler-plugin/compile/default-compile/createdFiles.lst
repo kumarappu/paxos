@@ -1,0 +1,11 @@
+com\paxos\assignment\microservice\Sha256ServiceApplication.class
+com\paxos\assignment\microservice\bean\DataAccessServiceMessage.class
+com\paxos\assignment\microservice\exception\ResourceNotFoundExceptionHandler.class
+com\paxos\assignment\microservice\exception\ResourceNotFoundException.class
+com\paxos\assignment\microservice\util\Sha256Utility.class
+com\paxos\assignment\microservice\proxy\DataAccessService.class
+com\paxos\assignment\microservice\bean\SHA256ServiceMessage$Request.class
+com\paxos\assignment\microservice\bean\SHA256ServiceMessage.class
+com\paxos\assignment\microservice\bean\SHA256ServiceMessage$ResponseDigest.class
+com\paxos\assignment\microservice\controller\SHA256ConversionController.class
+com\paxos\assignment\microservice\bean\SHA256ServiceMessage$ResponseMessage.class
