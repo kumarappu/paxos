@@ -19,19 +19,20 @@ In this implementaion, We have two microservices and one Naming server as shown 
  ![alt text]( https://github.com/kumarappu/paxos/blob/master/assignment1/Architecture.png)
  
     
-There are two instances of SHA256-service and 1 instance of Dataaccess-service running in AWS EC2 instance. Apache server has been used to loadbalance traffic for SHA256-services. Google Guava has been used an in memory cache in data access layer.
+There are two instances of SHA256-service and 1 instance of Dataaccess-service running in AWS EC2 instance. Apache HTTP server has been used to loadbalance traffic for SHA256-services. Google Guava has been used an in-memory cache in data access layer.
  
-  Services  endpoint: http://54.175.84.45/messages.
+ ####  Services  endpoint: http://54.175.84.45/messages.
  
- Eureka monitoring dashboard is available at http://54.175.84.45:8761/ . Here is screenshot for same. It reflects two instances of SHA256 microservices and one instance of Dataaccess ervice.
+  #### Eureka monitoring dashboard is available at http://54.175.84.45:8761/ . 
+  Here is screenshot for same. It reflects two instances of SHA256 microservices and one instance of Dataaccess ervice.
  ![alt text](https://github.com/kumarappu/paxos/blob/master/assignment1/EurekaNamingServer.png)
    
 ## Performance Question
   What would the bottleneck(s) be in your implementation as you acquire more users? How you might scale your microservice?
 	  
-  Answer : Both SHA256-service  and Dataaccess-service can become bottleneck. This can be easily scaled with following approaches. 
+  Answer : Both SHA256-service  and Dataaccess-service can become bottleneck. SHA256-service can run out of resources to handle large concurrent requests. Dataaccess service can become slow on large load. This can be easily scaled with following approaches. 
 
-  - Call to dataaccess service from SHA256 service can be made async.It will help with large concurrent request.
+  - Call to dataaccess service from SHA256 service can be made async.It will help with large concurrent requests.
   - Multiple instance of SHA256-service  and Dataaccess-service can be deployed for horizental scaling to achieve high throughput.
   - AWS Elastic Load balancer with auto scaling can be easily incorporated with the current design.
   - Netflix Ribbon can also be used as software loadbalnceer to distribute request from SHA256 to dataaccess layer.
@@ -86,7 +87,7 @@ There are two instances of SHA256-service and 1 instance of Dataaccess-service r
  #### Pre-requisite : JDK 1.8 to be set on PATH
     - Download the zip or clone the Git repository.
     - Unzip the zip file (if you downloaded one)
-    - Open Command Prompt and Change directory (cd) to paxos\assignment1
+    - Open Command Prompt and Change directory (cd) to paxos-master\assignment1
     - (on Windows) :
         Double click on runAssignment1.bat or type runAssignment1.bat from CMD
     - (on Linux) :
@@ -146,7 +147,7 @@ There are two instances of SHA256-service and 1 instance of Dataaccess-service r
 ## Instructions to run Assignment 2 & 3
     - Download the zip or clone the Git repository.
     - Unzip the zip file (if you downloaded one)
-    - Open Command Prompt and Change directory (cd) to paxos\assignments2and3
+    - Open Command Prompt and Change directory (cd) to paxoss-master\assignments2and3
   
  #### Pre-requisite : JDK 1.8 to be set on PATH
  
