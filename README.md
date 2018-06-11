@@ -23,7 +23,7 @@ There are two instances of SHA256-service and 1 instance of Dataaccess-service r
  
  ####  Services  endpoint: http://34.203.247.220/messages.
  
-  #### Eureka monitoring dashboard is available at http://34.203.247.220/:8761/ . 
+  #### Eureka monitoring dashboard is available at http://34.203.247.220:8761/ . 
   Here is screenshot for same. It reflects two instances of SHA256 microservices and one instance of Dataaccess ervice.
  ![alt text](https://github.com/kumarappu/paxos/blob/master/assignment1/EurekaNamingServer.png)
    
