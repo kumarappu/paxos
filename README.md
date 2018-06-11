@@ -21,9 +21,9 @@ In this implementaion, We have two microservices and one Naming server as shown 
     
 There are two instances of SHA256-service and 1 instance of Dataaccess-service running in AWS EC2 instance. Apache HTTP server has been used to loadbalance traffic for SHA256-services. Google Guava has been used an in-memory cache in data access layer.
  
- ####  Services  endpoint: http://54.175.84.45/messages.
+ ####  Services  endpoint: http://34.203.247.220/messages.
  
-  #### Eureka monitoring dashboard is available at http://54.175.84.45:8761/ . 
+  #### Eureka monitoring dashboard is available at http://34.203.247.220/:8761/ . 
   Here is screenshot for same. It reflects two instances of SHA256 microservices and one instance of Dataaccess ervice.
  ![alt text](https://github.com/kumarappu/paxos/blob/master/assignment1/EurekaNamingServer.png)
    
@@ -56,7 +56,7 @@ There are two instances of SHA256-service and 1 instance of Dataaccess-service r
     
    Request:
    
-      $ curl -X POST -H "Content-Type: application/json" -d '{"message": "foo"}' http://54.175.84.45/messages
+      $ curl -X POST -H "Content-Type: application/json" -d '{"message": "foo"}' http://34.203.247.220/messages
    
    Response:
    
@@ -67,7 +67,7 @@ There are two instances of SHA256-service and 1 instance of Dataaccess-service r
    ###### Example 2: GET request that returns the original message.
    Request:
 
-       $ curl http://54.175.84.45/messages/2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae
+       $ curl http://34.203.247.220/messages/2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae
 
    Response:
    
@@ -76,7 +76,7 @@ There are two instances of SHA256-service and 1 instance of Dataaccess-service r
    ###### Example 3: GET request that returns 404 for non-existent message.
    Request:
 
-        $ curl http://54.175.84.45/messages/aaaaaaaaaaaaaaaaaaaa
+        $ curl http://34.203.247.220/messages/aaaaaaaaaaaaaaaaaaaa
         
    Response:
                   
